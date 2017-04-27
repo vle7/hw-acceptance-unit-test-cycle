@@ -8,7 +8,8 @@ end
 
 
 Then /^the director of "([^"]*)" should be "([^"]*)"$/ do |arg1, arg2|
-   assert page.body =~ /#{arg1}.+Director.+#{arg2}/m
+  @movie = Movie.find_by_title(arg1)
+  @movie.director.should == arg2
    # express the regexp above with the code you wish you had
 end
 
